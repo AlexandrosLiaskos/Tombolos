@@ -586,10 +586,10 @@ class TomboloMapApp {
             { key: 'height_m', label: 'Height (m)' },
             { key: 'elevation', label: 'Elevation (m)' },
             { key: 'submerged', label: 'Currently Submerged' },
-            { key: 'sub_rcp26', label: 'Submerged (RCP 2.6)' },
-            { key: 'sub_rcp85', label: 'Submerged (RCP 8.5)' },
-            { key: 'elevation_rcp26', label: 'Elevation RCP 2.6' },
-            { key: 'elevation_rcp85', label: 'Elevation RCP 8.5' },
+            { key: 'sub_rcp26', label: 'Submerged RCP 2.6 (by year 2100)' },
+            { key: 'sub_rcp85', label: 'Submerged RCP 8.5 (by year 2100)' },
+            { key: 'elevation_rcp26', label: 'Elevation RCP 2.6 (by year 2100)' },
+            { key: 'elevation_rcp85', label: 'Elevation RCP 8.5 (by year 2100)' },
             { key: 'reference', label: 'Reference', isLink: true }
         ];
         
