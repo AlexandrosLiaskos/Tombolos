@@ -1,5 +1,5 @@
 """
-Greek Tombolos Web Map - FastAPI Backend
+Tombolos Web Map - FastAPI Backend
 Serves the static frontend and provides API endpoints for tombolo data
 """
 
@@ -11,7 +11,7 @@ import os
 
 # Initialize FastAPI app
 app = FastAPI(
-    title="Greek Tombolos Web Map",
+    title="Tombolos Web Map",
     description="Interactive map exploring tombolos in Greece and their vulnerability to sea level rise",
     version="1.0.0"
 )
@@ -29,9 +29,6 @@ app.add_middleware(
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 
-# Mount static files
-app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
-
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
@@ -40,22 +37,54 @@ async def root():
     if os.path.exists(index_path):
         with open(index_path, "r", encoding="utf-8") as f:
             return HTMLResponse(content=f.read())
-    return HTMLResponse(content="<h1>Greek Tombolos Web Map</h1><p>Index file not found.</p>")
+    return HTMLResponse(content="<h1>Tombolos Web Map</h1><p>Index file not found.</p>")
 
 
 @app.get("/health")
 async def health_check():
     """Health check endpoint"""
-    return {"status": "healthy", "app": "Greek Tombolos Web Map"}
+    return {"status": "healthy", "app": "Tombolos Web Map"}
 
+
+# Serve individual static files at root level for relative paths in HTML
+@app.get("/styles.css")
+async def serve_css():
+    return FileResponse(os.path.join(STATIC_DIR, "styles.css"), media_type="text/css")
+
+@app.get("/app.js")
+async def serve_app_js():
+    return FileResponse(os.path.join(STATIC_DIR, "app.js"), media_type="application/javascript")
+
+@app.get("/config.js")
+async def serve_config_js():
+    return FileResponse(os.path.join(STATIC_DIR, "config.js"), media_type="application/javascript")
+
+@app.get("/auth.js")
+async def serve_auth_js():
+    return FileResponse(os.path.join(STATIC_DIR, "auth.js"), media_type="application/javascript")
+
+@app.get("/simple-dropdown-limit.js")
+async def serve_dropdown_js():
+    return FileResponse(os.path.join(STATIC_DIR, "simple-dropdown-limit.js"), media_type="application/javascript")
+
+@app.get("/measurement-tool.js")
+async def serve_measurement_js():
+    return FileResponse(os.path.join(STATIC_DIR, "measurement-tool.js"), media_type="application/javascript")
 
 @app.get("/favicon.svg")
 async def favicon():
-    """Serve favicon"""
-    favicon_path = os.path.join(STATIC_DIR, "favicon.svg")
+    return FileResponse(os.path.join(STATIC_DIR, "favicon.svg"), media_type="image/svg+xml")
+
+@app.get("/favicon.ico")
+async def favicon_ico():
+    favicon_path = os.path.join(STATIC_DIR, "favicon.ico")
     if os.path.exists(favicon_path):
-        return FileResponse(favicon_path, media_type="image/svg+xml")
-    return {"error": "Favicon not found"}
+        return FileResponse(favicon_path, media_type="image/x-icon")
+    return FileResponse(os.path.join(STATIC_DIR, "favicon.svg"), media_type="image/svg+xml")
+
+
+# Also mount static directory for any other files
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
 if __name__ == "__main__":

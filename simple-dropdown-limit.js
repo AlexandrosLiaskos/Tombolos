@@ -12,7 +12,7 @@ if (true) {
     const config = {
         defaultSize: 6,
         debounceDelay: 150,
-        excludeSelectors: ['#year-filter', '#location-filter', '#deaths-toll-filter', '#event-name-filter'], // Selectors to exclude from limiting
+        excludeSelectors: ['#prefecture-filter', '#island-filter', '#type-filter', '#category-filter', '#submerged-filter', '#rcp26-filter', '#rcp85-filter'], // Selectors to exclude from limiting
     };
     
     // Cache for processed selects to avoid redundant operations
