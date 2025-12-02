@@ -399,16 +399,8 @@ class TomboloMapApp {
     
     async loadStats(filters = {}) {
         try {
-            // Total count
-            let totalQuery = window.supabaseClient.from('tombolos').select('*', { count: 'exact', head: true });
-            if (filters.prefecture) totalQuery = totalQuery.eq('prefecture_en', filters.prefecture);
-            if (filters.island) totalQuery = totalQuery.eq('island_en', filters.island);
-            if (filters.type) totalQuery = totalQuery.eq('tombolo_type', filters.type);
-            if (filters.category) totalQuery = totalQuery.eq('tombolo_category', filters.category);
-            if (filters.submerged) totalQuery = totalQuery.eq('submerged', filters.submerged);
-            if (filters.subRcp26) totalQuery = totalQuery.eq('sub_rcp26', filters.subRcp26);
-            if (filters.subRcp85) totalQuery = totalQuery.eq('sub_rcp85', filters.subRcp85);
-            const { count: totalCount } = await totalQuery;
+            // Total count (always shows all tombolos, not filtered)
+            const { count: totalCount } = await window.supabaseClient.from('tombolos').select('*', { count: 'exact', head: true });
             
             // Prefectures count
             const { data: prefData } = await window.supabaseClient.from('tombolos').select('prefecture_en').not('prefecture_en', 'is', null);
