@@ -394,21 +394,6 @@ h6 { font-size: 0.75rem; }
 }
 
 /* Filter Styles */
-.filter-section-header {
-    margin: var(--spacing-lg) 0 var(--spacing-md) 0;
-    padding: var(--spacing-sm) 0;
-    border-top: 1px solid var(--border-color);
-}
-
-.filter-section-title {
-    display: block;
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-}
-
 .filter-group {
     margin-bottom: var(--spacing-lg);
     position: relative;
