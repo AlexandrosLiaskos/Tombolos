@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="seaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0066cc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#004499;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4d03f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4ac0d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background sea -->
+  <circle cx="50" cy="50" r="48" fill="url(#seaGrad)" stroke="#003366" stroke-width="2"/>
+  <!-- Island 1 (left) -->
+  <ellipse cx="20" cy="50" rx="15" ry="12" fill="#2d5016"/>
+  <!-- Island 2 (right) -->
+  <ellipse cx="80" cy="50" rx="15" ry="12" fill="#2d5016"/>
+  <!-- Tombolo (sand bar connecting islands) -->
+  <ellipse cx="50" cy="50" rx="25" ry="6" fill="url(#sandGrad)"/>
+  <!-- Wave lines -->
+  <path d="M10 30 Q20 25 30 30 T50 30 T70 30 T90 30" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+  <path d="M10 70 Q20 75 30 70 T50 70 T70 70 T90 70" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+</svg>
