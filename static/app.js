@@ -1,5 +1,5 @@
 /**
- * Greek Tombolos Web Map - Frontend Application
+ * Tombolos Web Map - Frontend Application
  * Handles map visualization, filtering, and user interactions for tombolos data
  */
 
@@ -102,7 +102,7 @@ class TomboloMapApp {
             iconCreateFunction: function(cluster) {
                 const count = cluster.getChildCount();
                 return new L.DivIcon({
-                    html: '<div style="background: #0066cc; color: #fff; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.3); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; font-family: Inter, sans-serif;">' + count + '</div>',
+                    html: '<div style="background: #000; color: #fff; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.3); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; font-family: Inter, sans-serif;">' + count + '</div>',
                     className: 'minimal-cluster',
                     iconSize: new L.Point(36, 36)
                 });
@@ -136,6 +136,7 @@ class TomboloMapApp {
 
             const selectedFilters = {
                 prefecture: document.getElementById('prefecture-filter').value,
+            island: document.getElementById('island-filter').value,
                 island: document.getElementById('island-filter').value,
                 type: document.getElementById('type-filter').value,
                 category: document.getElementById('category-filter').value,
@@ -549,7 +550,7 @@ class TomboloMapApp {
         if (tombolo.submerged === 'yes') return '#cc0000'; // Red - already submerged
         if (tombolo.sub_rcp85 === 'yes') return '#ff6600'; // Orange - at risk under RCP 8.5
         if (tombolo.sub_rcp26 === 'yes') return '#ffcc00'; // Yellow - at risk under RCP 2.6
-        return '#0066cc'; // Blue - currently safe
+        return '#000000'; // Black - currently safe
     }
     
     async showTomboloDetails(tomboloId) {
