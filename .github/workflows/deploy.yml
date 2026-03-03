@@ -26,8 +26,8 @@ jobs:
 
       - name: Replace Supabase credentials
         run: |
-          sed -i "s|YOUR_SUPABASE_URL|${{ secrets.SUPABASE_URL }}|g" config.js
-          sed -i "s|YOUR_SUPABASE_ANON_KEY|${{ secrets.SUPABASE_ANON_KEY }}|g" config.js
+          sed -i "/^const SUPABASE_URL/s|YOUR_SUPABASE_URL|${{ secrets.SUPABASE_URL }}|" config.js
+          sed -i "/^const SUPABASE_ANON_KEY/s|YOUR_SUPABASE_ANON_KEY|${{ secrets.SUPABASE_ANON_KEY }}|" config.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
