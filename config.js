@@ -2,8 +2,11 @@
 // This file initializes the Supabase JavaScript client for the Tombolos application.
 
 // Configuration - These will be replaced during GitHub Pages deployment via GitHub Actions
-const SUPABASE_URL = 'https://etrxkdwuxgbtwkoatqjw.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV0cnhrZHd1eGdidHdrb2F0cWp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2MzQyNDQsImV4cCI6MjA4MDIxMDI0NH0.xd8I2S1kvrni87VZfF6gURpwuPar7CHlSC3x533wAhc';
+// Credentials are injected at deploy time via GitHub Actions secrets.
+// For local development: replace the placeholders below with your actual values.
+// WARNING: Never commit real credentials — keep placeholders here in version control.
+const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
 
 // Helper function to display configuration error banner
 function showConfigurationError(message, details) {
